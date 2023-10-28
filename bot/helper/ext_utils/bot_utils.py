@@ -143,10 +143,10 @@ def get_readable_message():
                                      MirrorStatus.STATUS_QUEUEDL, MirrorStatus.STATUS_QUEUEUP]:
             msg += f" » {download.speed()}"
             msg += f"\n➲{get_progress_bar_string(download.progress())} » {download.progress()}"
-            msg += f"\n➲<code>Done   </code>» {download.processed_bytes()} of {download.size()}"
-            msg += f"\n➲<code>ETA    </code>» {download.eta()}"
-            msg += f"\n➲<code>Past   </code>» {get_readable_time(elapsed)}"
-            msg += f"\n➲<code>ENG    </code>» {download.engine}"
+            msg += f"\n➲<code>𝘿𝙊𝙉𝙀   </code>» {download.processed_bytes()} of {download.size()}"
+            msg += f"\n➲<code>𝙀𝙏𝘼    </code>» {download.eta()}"
+            msg += f"\n➲<code>𝙋𝘼𝙎𝙏   </code>» {get_readable_time(elapsed)}"
+            msg += f"\n➲<code>𝙀𝙉𝙂𝙄𝙉𝙀    </code>» {download.engine}"
             if hasattr(download, 'playList'):
                 try:
                     if playlist:=download.playList():
@@ -155,7 +155,7 @@ def get_readable_message():
                     pass
             if hasattr(download, 'seeders_num'):
                 try:
-                    msg += f"\n⌑ <code>S/L    </code>» {download.seeders_num()}/{download.leechers_num()}"
+                    msg += f"\n➲ <code>𝙎/𝙇    </code>» {download.seeders_num()}/{download.leechers_num()}"
                 except:
                     pass
         elif download.status() == MirrorStatus.STATUS_SEEDING:
