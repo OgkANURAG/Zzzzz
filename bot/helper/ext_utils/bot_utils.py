@@ -142,11 +142,15 @@ def get_readable_message():
         if download.status() not in [MirrorStatus.STATUS_SEEDING, MirrorStatus.STATUS_PAUSED,
                                      MirrorStatus.STATUS_QUEUEDL, MirrorStatus.STATUS_QUEUEUP]:
             msg += f" » {download.speed()}"
-            msg += f"\n⌑ {get_progress_bar_string(download.progress())} » {download.progress()}"
-            msg += f"\n⌑ <code>Done   </code>» {download.processed_bytes()} of {download.size()}"
-            msg += f"\n⌑ <code>ETA    </code>» {download.eta()}"
-            msg += f"\n⌑ <code>Past   </code>» {get_readable_time(elapsed)}"
-            msg += f"\n⌑ <code>ENG    </code>» {download.engine}"
+            msg += f"\n🚀{get_progress_bar_string(download.progress())} » {download.progress()}"
+            msg += f"\n💾
+<code>Done   </code>» {download.processed_bytes()} of {download.size()}"
+            msg += f"\n💥
+<code>ETA    </code>» {download.eta()}"
+            msg += f"\n⭐
+<code>Past   </code>» {get_readable_time(elapsed)}"
+            msg += f"\n🚨
+<code>ENG    </code>» {download.engine}"
             if hasattr(download, 'playList'):
                 try:
                     if playlist:=download.playList():
@@ -159,19 +163,19 @@ def get_readable_message():
                 except:
                     pass
         elif download.status() == MirrorStatus.STATUS_SEEDING:
-            msg += f"\n⌑ <code>Size     </code>» {download.size()}"
-            msg += f"\n⌑ <code>Speed    </code>» {download.upload_speed()}"
-            msg += f"\n⌑ <code>Uploaded </code>» {download.uploaded_bytes()}"
-            msg += f"\n⌑ <code>Ratio    </code>» {download.ratio()}"
-            msg += f"\n⌑ <code>Time     </code>» {download.seeding_time()}"
+            msg += f"\n🗿 <code>Size     </code>» {download.size()}"
+            msg += f"\n💀 <code>Speed    </code>» {download.upload_speed()}"
+            msg += f"\n🤣 <code>Uploaded </code>» {download.uploaded_bytes()}"
+            msg += f"\n🤩 <code>Ratio    </code>» {download.ratio()}"
+            msg += f"\n🥳 <code>Time     </code>» {download.seeding_time()}"
         else:
-            msg += f"\n⌑ <code>Size   </code>» {download.size()}"
+            msg += f"\n🤗 <code>Size   </code>» {download.size()}"
         if config_dict['DELETE_LINKS']:
-            msg += f"\n⌑ <code>Task   </code>» {download.extra_details['mode']}"
+            msg += f"\n🥰 <code>Task   </code>» {download.extra_details['mode']}"
         else:
-            msg += f"\n⌑ <code>Task   </code>» <a href='{download.message.link}'>{download.extra_details['mode']}</a>"
+            msg += f"\n🫠 <code>Task   </code>» <a href='{download.message.link}'>{download.extra_details['mode']}</a>"
         msg += f"\n⌑ <code>User   </code>» {tag}"
-        msg += f"\n⚠️ /{BotCommands.CancelMirror}_{download.gid()}\n\n"
+        msg += f"\n🛑 /{BotCommands.CancelMirror}_{download.gid()}\n\n"
     if len(msg) == 0:
         return None, None
     def convert_speed_to_bytes_per_second(spd):
